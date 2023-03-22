@@ -1,0 +1,61 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "EPS",
+      "price": 100,
+      "rating": 4.8,
+      "reviews": 75
+    },
+    {
+      "name": "IPS",
+      "price": 300,
+      "rating": 4.5,
+      "reviews": 274,
+      "id": 2
+    },
+    {
+      "name": "UPS",
+      "price": 180,
+      "rating": 4.3,
+      "reviews": 334,
+      "id": 3
+    },
+    {
+      "name": "NEW",
+      "price": 220,
+      "rating": "5",
+      "reviews": "2",
+      "id": 4
+    }
+  ],
+  "todos": [
+    {
+      "title": "Sleep",
+      "description": "go to sleep at 11pm",
+      "id": "26c67aa1-ec7c-4771-bf14-9187b68419d9"
+    },
+    {
+      "title": "Wake Up",
+      "description": "wake up at 7am",
+      "id": "06ad63d5-1a8a-46e4-b94a-c1088f154a11"
+    }
+  ],
+  "faqs": [
+    {
+      "id": 1,
+      "title": "Demo FAQ 1",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    },
+    {
+      "id": 2,
+      "title": "Demo FAQ 2",
+      "description": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+    },
+    {
+      "id": 3,
+      "title": "Demo FAQ 3",
+      "description": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    }
+  ]
+}

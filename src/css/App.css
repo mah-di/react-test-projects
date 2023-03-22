@@ -1,0 +1,48 @@
+.app {
+  margin: 0% 15%;
+  padding: 20px 5%;
+  background-color: rgb(253, 253, 253);
+}
+h1 {
+  text-align: center;
+  padding: 5vh 0;
+}
+nav {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(75, 75, 75);
+}
+.nav-link {
+  margin: 0 20px;
+  color: whitesmoke;
+  font-size: large;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 200ms;
+}
+.nav-link:hover {
+  color: white;
+}
+.nav-link.active {
+  color: rgb(154, 255, 221);
+}
+.back-to-home {
+  text-align: center;
+  padding: 80px 0;
+}
+.back-to-home button {
+  padding: 13px 30px;
+  background-color: rgb(154, 255, 221);
+  font-size: medium;
+  color: rgb(75, 75, 75);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 300ms all;
+}
+.back-to-home button:hover {
+  transform: scale(1.1);
+  background-color: aquamarine;
+}

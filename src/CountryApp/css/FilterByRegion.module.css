@@ -1,0 +1,23 @@
+.filter-wrapper {
+    text-align: center;
+}
+.btn {
+    margin: 20px 5px;
+    padding: 10px 25px;
+    background-color: rgb(240, 240, 240);
+    font-size: medium;
+    color: rgb(75, 75, 75);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn:hover {
+    background-color: yellowgreen;
+    transform: scale(1.1);
+}
+.btn-active {
+    background-color: rgb(196, 250, 196);
+    border: 2px solid lightgreen;
+    padding: 9px 24px;
+}

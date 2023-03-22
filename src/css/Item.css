@@ -1,0 +1,35 @@
+.item_wrapper {
+    margin: 20px auto;
+    padding: 10px 20px;
+    border-left: 1px solid blueviolet;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+}
+.item_wrapper h4 {
+    margin-top: 0;
+}
+.item_wrapper .preview-header{
+    text-align: center;
+    color: white;
+    background-color: #4CAF50;
+    padding: 10px 0;
+}
+.item_wrapper p {
+    margin: 0;
+}
+.item_wrapper h5 {
+    margin-bottom: 0;
+    display: inline-block;
+}
+.item_wrapper button {
+    margin-left: 10%;
+    background-color: rgb(253, 253, 253);
+    padding: 8px 30px;
+    border-radius: 2px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.item_wrapper button:hover {
+    background-color: transparent;
+    transition-duration: 300ms;
+}

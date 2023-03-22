@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-function App() {
+import StoreApp from './components/App'
+import TodoApp from './TodoApp/components/App'
+import FaqApp from './FAQs/FAQs'
+import CountryApp from './CountryApp/components/App'
+import Error404 from './defaultPages/Error404'
+import HomePage from './defaultPages/HomePage'
+import NavBar from './defaultPages/NavBar'
+import CountryDetails from './CountryApp/components/CountryDetails'
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter >
+        <NavBar />
+        <Routes >
+            <Route path='/' element={<HomePage />} />
+            <Route path='/store-app' element={<StoreApp />} />
+            <Route path='/todo-app' element={<TodoApp />} />
+            <Route path='/faq-app' element={<FaqApp />} />
+            <Route path='/country-app' element={<CountryApp />} />
+            <Route path='/country-app/:name' element={<CountryDetails />} />
+            <Route path='*' element={<Error404 />} />
+        </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App

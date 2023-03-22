@@ -1,0 +1,63 @@
+.card {
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: rgb(250, 250, 250);
+    transition: all 0.3s;
+}
+.card:hover {
+  transform: scale(1.1);
+}
+.card-flag {
+    margin: 0;
+}
+.card-flag img {
+    width: 100%;
+    height: 12rem;
+}
+.card-body {
+    padding: 10px 0 34px;
+    text-align: center;
+}
+.card-body h2 {
+    color: rgb(75, 75, 75);
+}
+.card-body h2,
+.card-body p {
+    margin: 5px 0;
+    padding: 0;
+}
+.card-middle {
+    padding: 10px 0;
+    background-color: rgb(251, 251, 251);
+    color: rgb(100, 100, 100);
+}
+.sub-card {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(251, 251, 251);
+    color: rgb(100, 100, 100);
+}
+.sub-card div {
+    padding: 10px 5px;
+    width: 100%;
+}
+.sub-card div:last-child {
+    border-left: 2px solid rgb(100, 100, 100);
+}
+.btn {
+    margin-top: 20px;
+    font-size: medium;
+    border: none;
+    border-radius: 0.6rem;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    color: rgb(100, 100, 100);
+    background-color: rgb(255, 190, 68);
+    transition: all 0.3s;
+}
+.btn:hover {
+    background-color: coral;
+    color: whitesmoke;
+}

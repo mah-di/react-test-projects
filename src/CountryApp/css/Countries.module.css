@@ -1,0 +1,19 @@
+.card-wrapper {
+    display: grid;
+    gap: 2rem;
+}
+@media screen and (min-width: 628px) {
+    .card-wrapper {
+        grid-template-columns: auto auto;
+    }
+}
+@media screen and (min-width: 992px) {
+    .card-wrapper {
+        grid-template-columns: auto auto auto;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .card-wrapper {
+        grid-template-columns: auto auto auto auto;
+    }
+}

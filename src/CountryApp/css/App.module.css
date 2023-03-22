@@ -1,0 +1,12 @@
+.app {
+    margin: 0px 10%;
+    padding: 20px 40px;
+    background-color: rgb(253, 253, 253);
+}
+.total-countries-count {
+    padding: 10px 0;
+    background-color: rgb(250, 250, 250);
+    text-align: center;
+    color: rgb(75, 75, 75);
+    border-radius: 4px;
+}
