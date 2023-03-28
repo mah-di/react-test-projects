@@ -50,7 +50,6 @@ const reducer = (state, action) => {
     if ( action.type === 'FILTER' ) {
         const { region, minPopulation, maxPopulation, minArea, maxArea, data } = action.payload
         filteredData = data
-        console.log(action.payload)
 
         if ( region ) {
             filteredData = filteredData.filter((country) => country.region.startsWith(region))

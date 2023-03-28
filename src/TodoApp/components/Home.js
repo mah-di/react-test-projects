@@ -16,7 +16,6 @@ const Home = () => {
     }
 
     const handleNewTodo = (todo) => {
-        console.log(todo)
         const packet = {
             method: "POST",
             headers: {

@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 const useFetch = (url) => {
     const [ data, setData ] = useState(null)
@@ -21,7 +22,13 @@ const useFetch = (url) => {
             .finally(() => setIsLoading(false))
     }, [url])
 
-    return { data, isLoading, error, setData }
+    const setId = useCallback(() => {
+        setData((prev) => prev.map((country) => {
+            return {...country, id: uuidv4()}
+        }))
+    }, [])
+
+    return { data, isLoading, error, setId }
 }
 
 export default useFetch

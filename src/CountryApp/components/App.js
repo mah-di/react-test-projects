@@ -43,7 +43,7 @@ const App = () => {
 
     useEffect(() => {
         data && setFilters({...filterSet})
-    }, [filterSet])
+    }, [filterSet, setFilters, data])
 
     useEffect(() => {
         const region = filters.get('region')

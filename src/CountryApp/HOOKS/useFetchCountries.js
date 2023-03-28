@@ -1,16 +1,13 @@
 import { useEffect } from 'react'
-import { v4 as uuidv4 } from 'uuid'
 
 import useFetch from './useFetch'
 
 const useFetchCountries = (url) => {
-    const { data, isLoading, error, setData } = useFetch(url)
+    const { data, isLoading, error, setId } = useFetch(url)
 
     useEffect(() => {
-        data && setData(data.map((country) => {
-            return {...country, id: uuidv4()}
-        }))
-    }, [url, isLoading])
+        data && data[0].id === null && setId()
+    }, [url, isLoading, data, setId])
 
     return { data, isLoading, error }
 }

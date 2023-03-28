@@ -51,7 +51,6 @@ const FilterByPopulation = () => {
 
     return (
         <form onSubmit={handleSubmit} className={style['filter-wrapper']}>
-            <input type='text' value='any' hidden />
             <input type='number' placeholder='Minimum Population' name='minPopulation' value={population.minPopulation} onChange={handleChange} />
             <input type='number' placeholder='Maximum Population' name='maxPopulation' value={population.maxPopulation} onChange={handleChange} />
             <button type='submit' className={style.btn}>Set Population Filter</button>
@@ -75,7 +74,6 @@ const FilterByArea = () => {
 
     return (
         <form onSubmit={handleSubmit} className={style['filter-wrapper']}>
-            <input type='text' value='any' hidden />
             <input type='number' placeholder='Minimum Area' name='minArea' value={area.minArea} onChange={handleChange} />
             <input type='number' placeholder='Maximum Area' name='maxArea' value={area.maxArea} onChange={handleChange} />
             <button type='submit' className={style.btn}>Set Area Filter</button>
