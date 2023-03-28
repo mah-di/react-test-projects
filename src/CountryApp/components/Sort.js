@@ -1,6 +1,6 @@
 import React from 'react'
 
-import style from '../css/FilterByRegion.module.css'
+import style from '../css/Filter.module.css'
 
 const Sort = (props) => {
     const { sortByName, sortByPopulation, sortByArea } = props

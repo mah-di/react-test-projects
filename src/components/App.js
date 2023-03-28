@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 function App() {
   const navigate = useNavigate()
-  const [cartInfo, setCartInfo] = useState({'value': 0, 'total': 0})
+  const [cartInfo, setCartInfo] = useState([])
   const [items, setItems] = useState([])
 
   useEffect(() => {
@@ -24,13 +24,17 @@ function App() {
     setItems((prev) => [...prev, product])
   }
 
+  const handleAddToCart = (item) => {
+    setCartInfo((prev) => [...prev, item])
+  }
+
   return (
     <div className="app">
       <Cart cartInfo={cartInfo} />
       <h2>Hey {user}, Welcome back!</h2>
       <div>
         <h3>Products</h3>
-        {items.map(item => <Item data={item} setCartInfo={setCartInfo} key={item.id} />)}
+        {items.map(item => <Item data={item} onAddToCart={handleAddToCart} key={item.id} />)}
       </div>
       {<Form onNewProduct={handleNewProduct} />}
       <div className='back-to-home'>

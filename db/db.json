@@ -27,6 +27,27 @@
       "rating": "5",
       "reviews": "2",
       "id": 4
+    },
+    {
+      "name": "NEW",
+      "price": 125,
+      "rating": "4.4",
+      "reviews": "23",
+      "id": 5
+    },
+    {
+      "name": "FPT",
+      "price": 320,
+      "rating": "3.8",
+      "reviews": "",
+      "id": 6
+    },
+    {
+      "name": "FPT",
+      "price": 220,
+      "rating": "3.8",
+      "reviews": "43",
+      "id": 7
     }
   ],
   "todos": [

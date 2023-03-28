@@ -10,7 +10,7 @@ const useFetchCountries = (url) => {
         data && setData(data.map((country) => {
             return {...country, id: uuidv4()}
         }))
-    }, [url])
+    }, [url, isLoading])
 
     return { data, isLoading, error }
 }

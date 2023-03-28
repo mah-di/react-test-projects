@@ -47,9 +47,26 @@ const reducer = (state, action) => {
             totalCountries: filteredData.length
         }
     }
-    if ( action.type === 'FILTERBYREGION' ) {
-        const { region, data } = action.payload
-        filteredData = data.filter((country) => country.region.startsWith(region))
+    if ( action.type === 'FILTER' ) {
+        const { region, minPopulation, maxPopulation, minArea, maxArea, data } = action.payload
+        filteredData = data
+        console.log(action.payload)
+
+        if ( region ) {
+            filteredData = filteredData.filter((country) => country.region.startsWith(region))
+        }
+        if ( minPopulation ) {
+            filteredData = filteredData.filter((country) => country.population >= Number(minPopulation))
+        }
+        if ( maxPopulation ) {
+            filteredData = filteredData.filter((country) => country.population <= Number(maxPopulation))
+        }
+        if ( minArea ) {
+            filteredData = filteredData.filter((country) => country.area >= Number(minArea))
+        }
+        if ( maxArea ) {
+            filteredData = filteredData.filter((country) => country.area <= Number(maxArea))
+        }
         
         return {
             ...state,

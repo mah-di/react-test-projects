@@ -1,12 +1,18 @@
+import { Link } from "react-router-dom";
 import "../css/Cart.css"
 
 function Cart(props) {
-    const { value, total } = props.cartInfo
+    const cartInfo = props.cartInfo
+    const value = cartInfo.length
+    var total = 0
+    cartInfo.forEach(item => {
+        total += item.price        
+    });
 
     return (
-        <div className="cart">
+        <Link className="cart" to='add-new-product' state={{cartInfo}} >
             <p>Item {value} | Total {total}</p>
-        </div>
+        </Link>
     )
 }
 

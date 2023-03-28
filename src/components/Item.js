@@ -8,7 +8,7 @@ function Item(props) {
 
     function action() {
         if (!added) {
-            props.setCartInfo((prev) => prev = {value: prev.value + 1, total: prev.total + price})
+            props.onAddToCart({name, price, rating, reviews})
             setAdded(!added)
         }
     }

@@ -1,6 +1,14 @@
 .filter-wrapper {
     text-align: center;
 }
+.filter-wrapper input {
+    margin: 20px 5px;
+    padding: 10px 25px;
+    background-color: rgb(196, 250, 196);
+    font-size: medium;
+    border: none;
+    border-radius: 3px;
+}
 .btn {
     margin: 20px 5px;
     padding: 10px 25px;
