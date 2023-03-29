@@ -66,7 +66,7 @@ const reducer = (state, action) => {
         if ( maxArea ) {
             filteredData = filteredData.filter((country) => country.area <= Number(maxArea))
         }
-        
+
         return {
             ...state,
             filteredData: filteredData,
@@ -79,7 +79,7 @@ const reducer = (state, action) => {
     if ( action.type === 'SORTBYNAME') {
         filteredData = state.sortByName.sortOrder ? state.filteredData.sort((c1, c2) => c1.name.common > c2.name.common ? 1 : -1) : state.filteredData.sort((c1, c2) => c1.name.common > c2.name.common ? -1 : 1)
         order = !state.sortByName.sortOrder
-        
+
         return {
             ...state,
             filteredData: filteredData,
@@ -95,7 +95,7 @@ const reducer = (state, action) => {
     if ( action.type === 'SORTBYPOPULATION') {
         filteredData = state.sortByPopulation.sortOrder ? state.filteredData.sort((c1, c2) => c1.population > c2.population ? -1 : 1) : state.filteredData.sort((c1, c2) => c1.population > c2.population ? 1 : -1)
         order = !state.sortByPopulation.sortOrder
-        
+
         return {
             ...state,
             filteredData: filteredData,
@@ -111,7 +111,7 @@ const reducer = (state, action) => {
     if ( action.type === 'SORTBYAREA') {
         filteredData = state.sortByArea.sortOrder ? state.filteredData.sort((c1, c2) => c1.area > c2.area ? -1 : 1) : state.filteredData.sort((c1, c2) => c1.area > c2.area ? 1 : -1)
         order = !state.sortByArea.sortOrder
-        
+
         return {
             ...state,
             filteredData: filteredData,

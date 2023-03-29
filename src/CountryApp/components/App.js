@@ -20,17 +20,17 @@ const initialState = {
     },
     sortByPopulation: {
         active: false,
-        sortOrder: true    
+        sortOrder: true
     },
     sortByArea: {
         active: false,
-        sortOrder: true    
+        sortOrder: true
     },
     totalCountries: null
 }
 
 const App = () => {
-    const [ filterSet, setFilterSet ] = useState({})
+    const [ filterSet, setFilterSet ] = useState(null)
     const [ filters, setFilters ] = useSearchParams()
     const navigate = useNavigate()
     const { data, isLoading, error } = useFetchCountries('https://restcountries.com/v3.1/all')
@@ -42,7 +42,7 @@ const App = () => {
     }, [data])
 
     useEffect(() => {
-        data && setFilters({...filterSet})
+        data && filterSet && setFilters({...filterSet})
     }, [filterSet, setFilters, data])
 
     useEffect(() => {
@@ -57,13 +57,12 @@ const App = () => {
     const handleRemove = (id) => {
         dispatch({type: 'REMOVE', payload: id})
     }
-    
+
     const handleSearchCountry = (searchValue) => {
         dispatch({type: 'SEARCH', payload: {searchValue, data}})
     }
 
     const handleRegionFilter = (region) => {
-        // dispatch({type: 'FILTERBYREGION', payload: {region, data}})
         if ( region !== '' ) {
             setFilterSet((prev) => {return {...prev, region: region}})
         } else {
