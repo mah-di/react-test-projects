@@ -48,6 +48,13 @@
       "rating": "3.8",
       "reviews": "43",
       "id": 7
+    },
+    {
+      "name": "STE",
+      "price": 225,
+      "rating": "4.7",
+      "reviews": "67",
+      "id": 8
     }
   ],
   "todos": [

@@ -52,6 +52,7 @@
 }
 .btn {
     margin-top: 20px;
+    width: 80%;
     font-size: medium;
     border: none;
     border-radius: 0.6rem;

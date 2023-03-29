@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { CountryContext } from '../contexts/CountryContext'
 
 import style from '../css/Country.module.css'
@@ -30,49 +30,50 @@ const Country = (props) => {
     const { onRemove } = useContext(CountryContext)
     const country = props.country
 
+    const handleCardClick = (e) => {
+        navigate(country.name.common, {state: {country}})
+    }
+
     const handleRemove = (e) => {
         e.stopPropagation()
         onRemove(country.id)
     }
 
     return (
-        <Link className={style['card-wrapper']} to={country.name.common} state={{country}} >
-            <div className={style.card}>
-                <div className={style['card-flag']}>
-                    <img src={country.flags.png} alt={country.flags.alt} />
+        <div className={style.card} onClick={handleCardClick}>
+            <div className={style['card-flag']}>
+                <img src={country.flags.png} alt={country.flags.alt} />
+            </div>
+            <div className={style['card-body']}>
+                <h2>{country.name.common}</h2>
+                {
+                    country.capital && 
+                    <div className={style['sub-card']}>
+                        <div>
+                            Capital
+                        </div>
+                        <CapitalElement capitals={country.capital} />
+                    </div>
+                }
+                <div className={style['card-middle']}>
+                    <p>Region : <strong>{country.region}</strong></p>
+                    <p>Area: <strong>{country.area}</strong> square km</p>
+                    <p>Population: <strong>{country.population}</strong></p>
                 </div>
-                <div className={style['card-body']}>
-                    <h2>{country.name.common}</h2>
-                    {
-                        country.capital && 
-                        <div className={style['sub-card']}>
-                            <div>
-                                Capital
-                            </div>
-                            <CapitalElement capitals={country.capital} />
+                {
+                    country.currencies && 
+                    <div className={style['sub-card']}>
+                        <div>
+                            Currency
                         </div>
-                    }
-                    <div className={style['card-middle']}>
-                        <p>Region : <strong>{country.region}</strong></p>
-                        <p>Area: <strong>{country.area}</strong> square km</p>
-                        <p>Population: <strong>{country.population}</strong></p>
+                        <CurrenciesElement currencies={country.currencies} />
                     </div>
-                    {
-                        country.currencies && 
-                        <div className={style['sub-card']}>
-                            <div>
-                                Currency
-                            </div>
-                            <CurrenciesElement currencies={country.currencies} />
-                        </div>
-                    }
-                    <div className={style.actions}>
-                        <button onClick={handleRemove} className={style.btn}>Remove</button>
-                        <button onClick={() => {navigate(country.name.common)}} className={style.btn}>View Details</button>
-                    </div>
+                }
+                <div className={style.actions}>
+                    <button onClick={handleRemove} className={style.btn}>Remove</button>
                 </div>
             </div>
-        </Link>
+        </div>
     )
 }
 
