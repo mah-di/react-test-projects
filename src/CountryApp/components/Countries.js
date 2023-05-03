@@ -5,11 +5,11 @@ import style from '../css/Countries.module.css'
 import { CountryContext } from '../contexts/CountryContext'
 
 const Countries = (props) => {
-    const { countries } = useContext(CountryContext)
+    const { displayData } = useContext(CountryContext)
 
     return (
         <div className={style['card-wrapper']}>
-            {countries.map((country) => <Country key={country.id} country={country} onRemove={props.onRemove} />)}
+            {displayData.map((country) => <Country key={country.id} country={country} onRemove={props.onRemove} />)}
         </div>
     )
 }

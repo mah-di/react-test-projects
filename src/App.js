@@ -5,7 +5,8 @@ import StoreApp from './components/App'
 import StoreAppAddNewProduct from './components/AddNewProduct'
 import TodoApp from './TodoApp/components/App'
 import FaqApp from './FAQs/FAQs'
-import CountryApp from './CountryApp/components/App'
+import UsersApp from './UsersApp/App'
+import CountryApp from './CountryApp/App'
 import Error404 from './defaultPages/Error404'
 import HomePage from './defaultPages/HomePage'
 import NavBar from './defaultPages/NavBar'
@@ -27,9 +28,12 @@ const App = () => {
             } />
             <Route path='/todo-app' element={<TodoApp />} />
             <Route path='/faq-app' element={<FaqApp />} />
+            <Route path='/users-app' element={<UsersApp />} />
             <Route path='/country-app' element={<CountryApp />} />
             <Route path='/country-test' element={<Filters />} />
             <Route path='/country-app/:name' element={<CountryDetails />} />
+            <Route path='/users
+            -app' element={<FaqApp />} />
             <Route path='*' element={<Error404 />} />
         </Routes>
     </BrowserRouter>

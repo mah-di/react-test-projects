@@ -1,15 +1,18 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { FiltersContext } from '../contexts/FiltersContext'
 
 import style from '../css/Filter.module.css'
+import { CountryContext } from '../contexts/CountryContext'
 
 const FilterByRegion = () => {
-    const { onRegionFilter, filterSet } = useContext(FiltersContext)
-    const { region } = filterSet
+    const { filters, region, setFilterParams } = useContext(CountryContext)
 
     const handleClick = (e) => {
         const setRegion = e.target.value
-        onRegionFilter(setRegion)
+
+        var updatedFilter = {...filters, region: setRegion}
+        !setRegion && delete updatedFilter.region
+
+        setFilterParams({...updatedFilter})
     }
 
     return (
@@ -26,43 +29,46 @@ const FilterByRegion = () => {
 }
 
 const FilterByPopulation = () => {
-    const { onPopulationFilter, filterSet } = useContext(FiltersContext)
-    const { population_min, population_max } = filterSet
-    const [ population, setPopulation ] = useState({minPopulation: '', maxPopulation: ''})
-
+    const { filters, minPopulation, maxPopulation, setFilterParams } = useContext(CountryContext)
+    const [ population, setPopulation ] = useState({population_min: '', population_max: ''})
+    
     useEffect(() => {
-        population_min && setPopulation((prev) => {return {...prev, minPopulation: population_min}})
-        population_max && setPopulation((prev) => {return {...prev, maxPopulation: population_max}})
-    }, [population_min, population_max])
+        minPopulation && setPopulation((prev) => {return {...prev, population_min: minPopulation}})
+        maxPopulation && setPopulation((prev) => {return {...prev, population_max: maxPopulation}})
+    }, [minPopulation, maxPopulation])
     
     const handleChange = (e) => {
         const name = e.target.name
         setPopulation(prev => {return {...prev, [name]: e.target.value}})
     }
-
+    
     const handleSubmit = (e) => {
         e.preventDefault()
-        onPopulationFilter(population)
-    }
 
+        var updatedFilter = {...filters, ...population}
+        !population.population_max && delete updatedFilter.population_max
+        !population.population_min && delete updatedFilter.population_min
+
+        setFilterParams({...updatedFilter})
+    }
+    
     return (
         <form onSubmit={handleSubmit} className={style['filter-wrapper']}>
-            <input type='number' placeholder='Minimum Population' name='minPopulation' value={population.minPopulation} onChange={handleChange} />
-            <input type='number' placeholder='Maximum Population' name='maxPopulation' value={population.maxPopulation} onChange={handleChange} />
+            <input type='number' placeholder='Minimum Population' name='population_min' value={population.population_min} onChange={handleChange} />
+            <input type='number' placeholder='Maximum Population' name='population_max' value={population.population_max} onChange={handleChange} />
             <button type='submit' className={style.btn}>Set Population Filter</button>
         </form>
     )
 }
 
 const FilterByArea = () => {
-    const { onAreaFilter, filterSet } = useContext(FiltersContext)
-    const { area_min, area_max } = filterSet
-    const [ area, setArea ] = useState({minArea: '', maxArea: ''})
+    const { filters, minArea, maxArea, setFilterParams } = useContext(CountryContext)
+    const [ area, setArea ] = useState({area_min: '', area_max: ''})
 
     useEffect(() => {
-        area_min && setArea((prev) => {return {...prev, minArea: area_min}})
-        area_max && setArea((prev) => {return {...prev, minArea: area_max}})
-    }, [area_min, area_max])
+        minArea && setArea((prev) => {return {...prev, area_min: minArea}})
+        maxArea && setArea((prev) => {return {...prev, area_max: maxArea}})
+    }, [minArea, maxArea])
 
     const handleChange = (e) => {
         const name = e.target.name
@@ -71,13 +77,18 @@ const FilterByArea = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        onAreaFilter(area)
+
+        var updatedFilter = {...filters, ...area}
+        !area.area_max && delete updatedFilter.area_max
+        !area.area_min && delete updatedFilter.area_min
+
+        setFilterParams({...updatedFilter})
     }
 
     return (
         <form onSubmit={handleSubmit} className={style['filter-wrapper']}>
-            <input type='number' placeholder='Minimum Area' name='minArea' value={area.minArea} onChange={handleChange} />
-            <input type='number' placeholder='Maximum Area' name='maxArea' value={area.maxArea} onChange={handleChange} />
+            <input type='number' placeholder='Minimum Area' name='area_min' value={area.area_min} onChange={handleChange} />
+            <input type='number' placeholder='Maximum Area' name='area_max' value={area.area_max} onChange={handleChange} />
             <button type='submit' className={style.btn}>Set Area Filter</button>
         </form>
     )

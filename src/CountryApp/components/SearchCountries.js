@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import style from '../css/SearchCountries.module.css'
+import { CountryContext } from '../contexts/CountryContext'
 
-const SearchCountries = (props) => {
+const SearchCountries = () => {
     const [ searchValue, setSearchValue ] = useState('')
+    const { searchCountries } = useContext(CountryContext)
     
     useEffect(() => {
-        props.onSearchCountry(searchValue)
+        searchCountries(searchValue)
         // eslint-disable-next-line
     }, [searchValue])
     

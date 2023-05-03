@@ -25,18 +25,17 @@ const CurrenciesElement = (props) => {
     )
 }
 
-const Country = (props) => {
+const Country = ({ country }) => {
     const navigate = useNavigate()
-    const { onRemove } = useContext(CountryContext)
-    const country = props.country
+    const { removeCountry } = useContext(CountryContext)
 
-    const handleCardClick = (e) => {
+    const handleCardClick = () => {
         navigate(country.name.common, {state: {country}})
     }
 
     const handleRemove = (e) => {
         e.stopPropagation()
-        onRemove(country.id)
+        removeCountry(country.id)
     }
 
     return (
@@ -57,8 +56,9 @@ const Country = (props) => {
                 }
                 <div className={style['card-middle']}>
                     <p>Region : <strong>{country.region}</strong></p>
-                    <p>Area: <strong>{country.area}</strong> square km</p>
+                    <p>Area: <strong>{country.area}</strong> km²</p>
                     <p>Population: <strong>{country.population}</strong></p>
+                    <p>Density: <strong>{(country.population/country.area).toFixed(1)}</strong> man/km²</p>
                 </div>
                 {
                     country.currencies && 
